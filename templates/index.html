@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drowsiness Detection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1c1c1c, #2d2d2d);
+            color: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 30px 20px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: #00ffc3;
+            text-shadow: 0 2px 6px rgba(0, 255, 195, 0.5);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .video-container {
+            width: 100%;
+            max-width: 800px;
+            background-color: #111;
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 255, 195, 0.2);
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        .video-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 2px solid #00ffc3;
+        }
+
+        footer {
+            margin-top: auto;
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 40px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Real-Time Drowsiness Detection</h1>
+
+    <div class="video-container">
+        <img src="{{ url_for('video_feed') }}" alt="Live Drowsiness Detection">
+    </div>
+
+    <footer>
+        &copy; 2025 | Powered by Flask, OpenCV & dlib
+    </footer>
+</body>
+</html>
